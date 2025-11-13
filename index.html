@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redes Quânticas — Apresentação</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#7c3aed; /* violet */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      background: linear-gradient(180deg,#071025 0%, #071228 50%, #02111a 100%);
+      color:#E6EEF6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45; padding:40px 20px; display:flex; justify-content:center;
+    }
+    .wrap{width:100%; max-width:var(--maxw)}
+    header{display:flex; align-items:center; gap:16px; margin-bottom:24px}
+    .logo{width:64px; height:64px; background:linear-gradient(135deg,var(--accent),#06b6d4); border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:800;}
+    .title{font-size:20px; font-weight:800}
+    .subtitle{color:var(--muted); font-size:13px}
+    nav{position:sticky; top:16px; display:flex; gap:8px; margin-bottom:18px}
+    .navbtn{background:var(--glass); border:1px solid rgba(255, 255, 255, 0.03); padding:10px 12px; border-radius:12px; font-weight:600; font-size:13px; cursor:pointer; color:white;}
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:20px; border-radius:20px; box-shadow:0 6px 20px rgba(2,6,23,0.6); margin-bottom:18px}
+    .meta{display:flex; gap:12px; align-items:center}
+    .meta .by{color:var(--muted); font-size:14px}
+    main{display:flex; flex-direction:column; gap:18px}
+    section{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:22px; border-radius:14px; border:1px solid rgba(255,255,255,0.03)}
+    h2{margin:0 0 8px 0; font-size:18px}
+    h3{margin:0 0 6px 0; color:#cfe3ff; font-size:15px}
+    p{margin:0 0 10px 0; color:#dfe9f8}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+    .footer{color:var(--muted); font-size:13px; margin-top:10px}
+
+    /* nice vertical timeline marker */
+    .section-head{display:flex; gap:12px; align-items:flex-start}
+    .marker{width:10px; height:10px; background:var(--accent); border-radius:50%; margin-top:6px; box-shadow:0 0 18px rgba(124,58,237,0.25)}
+
+    /* progress bar */
+    #progress{position:fixed; left:20px; top:20px; width:6px; height:60vh; background:rgba(255,255,255,0.03); border-radius:12px; display:flex; align-items:flex-start; padding:6px}
+    #progress > i{display:block; width:100%; background:linear-gradient(180deg,var(--accent),#06b6d4); border-radius:8px; height:8px; transition:height .12s linear}
+
+    /* small screens */
+    @media (max-width:640px){ body{padding:18px} .navbtn{display:none} .wrap{max-width:100%}  }
+
+    /* keyboard hint */
+    .hint{color:var(--muted); font-size:12px; margin-left:auto}
+
+    /* subtle fade-in */
+    section{opacity:0; transform:translateY(8px); animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1; transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">RQ</div>
+      <div>
+        <div class="title">Redes Quânticas</div>
+        <div class="subtitle">Física - Práticas Extensivas</div>
+      </div>
+      <div class="hint">Use ↑ ↓ para navegar</div>
+    </header>
+
+    <nav>
+      <button class="navbtn" data-to="sec1">1. O que são</button>
+      <button class="navbtn" data-to="sec2">2. Princípios</button>
+      <button class="navbtn" data-to="sec3">3. Comunicação</button>
+      <button class="navbtn" data-to="sec4">4. Infraestrutura</button>
+      <button class="navbtn" data-to="sec6">5. Estado</button>
+      <button class="navbtn" data-to="sec8">6. Futuro</button>
+    </nav>
+
+    <main>
+      <section id="sec1">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>1. O que são Redes Quânticas</h2>
+        <h3>Definição Geral</h3>
+        <p>Redes quânticas são sistemas de comunicação que utilizam princípios da mecânica quântica para transmitir informação entre dois ou mais pontos. Em vez de trabalhar com bits clássicos (0 e 1), essas redes utilizam <strong>estados quânticos</strong> de partículas — geralmente fótons — para enviar dados. O objetivo principal é possibilitar comunicações extremamente seguras e, no futuro, interligar computadores quânticos ao redor do mundo, criando uma “internet quântica”.</p>
+
+        <h3>Diferença para Redes Clássicas (Internet Normal)</h3>
+        <p>Enquanto redes tradicionais usam bits codificados em sinais elétricos, ondas de rádio ou luz clássica, redes quânticas transmitem <em>qubits</em> — unidades de informação que obedecem a regras da mecânica quântica. Isto traz duas mudanças fundamentais:</p>
+        <ul>
+          <li>Qualquer tentativa de medição/interceptação altera o estado quântico e pode ser detectada.</li>
+          <li>Novos protocolos de criptografia e comunicação tornam-se possíveis, com segurança baseada em física e não em problemas computacionais.</li>
+        </ul>
+
+        <h3>Conceito de Qubits como Portadores de Informação</h3>
+        <p>O <strong>qubit</strong> é a unidade básica nas redes quânticas. Diferente do bit clássico, que vale 0 ou 1, o qubit pode existir em <em>superposição</em> (0 e 1 ao mesmo tempo) e pode se <em>emaranhar</em> com outros qubits. Essas propriedades ampliam capacidades de comunicação e criptografia, mas também tornam o sistema sensível a ruído e decoerência.</p>
+        </div></div>
+      </section>
+
+      <section id="sec2">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>2. Princípios de Física Quântica Envolvidos</h2>
+        <h3>Superposição</h3>
+        <p>Superposição é o fenômeno onde um qubit pode estar em múltiplos estados simultaneamente (por exemplo, 0 e 1). Em comunicações, a superposição permite formas de codificação e testes de integridade que não existem classicamente.</p>
+
+        <h3>Emaranhamento Quântico</h3>
+        <p>Emaranhamento ocorre quando duas ou mais partículas formam um estado quântico conjunto. Mesmo separadas distâncias grandes, medições em uma partícula correlacionam instantaneamente o resultado na outra. Emaranhamento é a base para tarefas como teletransporte de estado e repetidores quânticos.</p>
+        </div></div>
+      </section>
+
+      <section id="sec3">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>3. Como funciona a Comunicação Quântica</h2>
+        <h3>Distribuição de Chaves Quânticas (QKD)</h3>
+        <p>QKD é um método para duas partes gerarem e compartilharem uma chave criptográfica usando qubits. Graças aos princípios quânticos, qualquer tentativa de escuta altera os qubits e é detectada, permitindo interromper a comunicação antes que a chave seja comprometida.</p>
+
+        <h3>Protocolo BB84 (Básico e Famoso)</h3>
+        <p>O BB84 funciona enviando fótons polarizados em bases diferentes e medindo em bases aleatórias. Depois, as partes comparam quais bases coincidiram (sem revelar os bits) para construir uma chave segura. Se houver interceptação, a taxa de erro aumenta e a intrusão é revelada.</p>
+
+        <h3>Importância da Detecção de Interceptação</h3>
+        <p>Numa comunicação quântica, a medição por um intruso modifica estados quânticos — um sinal claro de espionagem. Isso torna QKD uma ferramenta extremamente valiosa para proteger comunicações sensíveis.</p>
+        </div></div>
+      </section>
+
+      <section id="sec4">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>4. Infraestrutura</h2>
+        <h3>Fótons em Fibras Ópticas</h3>
+        <p>Fótons são os vetores mais comuns para transmitir qubits: eles viajam bem em fibras ópticas e podem ser manipulados com equipamentos fotônicos. No entanto, manutenção do estado quântico exige hardware especializado para reduzir perda e ruído.</p>
+
+        <h3>Repetidores Quânticos</h3>
+        <p>Ao contrário de repetidores clássicos (que amplificam o sinal), repetidores quânticos estendem a distância usando emaranhamento e técnicas de teletransporte de estado, sem medir diretamente os qubits que carregam a informação.</p>
+        </div></div>
+      </section>
+
+      <section id="sec6">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>5. Estado Atual da Tecnologia</h2>
+        <h3>Onde existem redes quânticas hoje</h3>
+        <p>Existem trechos experimentais e redes piloto em diversos lugares do mundo. Projetos notáveis incluem grandes implementações e testes na China, iniciativas de pesquisa e trechos experimentais nos Estados Unidos, e a iniciativa EUROQCI na Europa para criar uma infraestrutura quântica continental.</p>
+
+        <h3>Empresas e Instituições Envolvidas</h3>
+        <p>Grandes empresas (IBM, Google) e instituições acadêmicas (universidades e laboratórios nacionais) desenvolvem tecnologia quântica. Além disso, startups especializadas em QKD e fotônica estão surgindo para levar soluções práticas ao mercado.</p>
+        </div></div>
+      </section>
+
+      <section id="sec8">
+        <div class="section-head"><div class="marker"></div><div>
+        <h2>6. Futuro da Área</h2>
+        <h3>Rumo à “Internet Quântica”</h3>
+        <p>O objetivo de longo prazo é criar uma rede global que conecte computadores quânticos, permitindo troca direta de informação quântica — uma verdadeira internet quântica paralela à internet atual.</p>
+
+        <h3>Interligar Computadores Quânticos Globalmente</h3>
+        <p>Interconectar computadores quânticos permitirá resolver problemas de grande escala, simular sistemas complexos e habilitar novas aplicações em ciência e criptografia.</p>
+
+        <h3>Impacto na Segurança Digital e Computação</h3>
+        <p>Redes quânticas prometem transformar a segurança digital: QKD pode tornar interceptações inúteis e garantir comunicações seguras mesmo contra adversários com computadores quânticos poderosos. Além disso, a computação distribuída quântica abrirá novos paradigmas de processamento.</p>
+        </div></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // smooth scroll nav
+    document.querySelectorAll('.navbtn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const to = document.getElementById(btn.dataset.to);
+        to.scrollIntoView({behavior:'smooth', block:'center'});
+      })
+    })
+
+    // update progress indicator
+    const progressBar = document.querySelector('#progress > i');
+    function updateProgress(){
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH ? (window.scrollY / docH) : 0;
+      progressBar.style.height = Math.max(16, Math.round(pct*100)) + 'px';
+    }
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    // keyboard nav (up/down)
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowDown' || e.key==='PageDown') window.scrollBy({top:window.innerHeight*0.6, behavior:'smooth'});
+      if(e.key==='ArrowUp' || e.key==='PageUp') window.scrollBy({top:-window.innerHeight*0.6, behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
